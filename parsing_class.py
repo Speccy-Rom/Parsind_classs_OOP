@@ -32,12 +32,10 @@ class Parser:
 
     def save(self):
         with open(self.path, 'w', encoding='utf-8') as f:
-            i = 1
-            for item in self.results:
+            for i, item in enumerate(self.results, start=1):
                 f.write(
                     f'Новость № {i}\n\nНазвание: {item["title"]}\nОписание: {item["desc"]}\nСсылка: {item["href"]}\n\n'
                     f'****************************\n')
-                i += 1
 
     def run(self):
         self.get_html()
